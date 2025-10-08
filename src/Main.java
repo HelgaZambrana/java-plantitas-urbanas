@@ -35,7 +35,7 @@ public class Main {
     private static void showMainMenu() {
         while (true) {
             System.out.println("\n╔════════════════════════════════════════╗");
-            System.out.println("║   🌱 PLANTITAS URBANAS - MENU PRINCIPAL   ║");
+            System.out.println("║   PLANTITAS URBANAS - MENU PRINCIPAL   ║");
             System.out.println("╚════════════════════════════════════════╝");
             System.out.println("1. Ver productos disponibles");
             System.out.println("2. Ver usuarios registrados");
@@ -61,10 +61,10 @@ public class Main {
                     showOrders();
                     break;
                 case 5:
-                    System.out.println("\n¡Gracias por usar Plantitas Urbanas! 🌿");
+                    System.out.println("\n¡Gracias por usar Plantitas Urbanas!");
                     return;
                 default:
-                    System.out.println("\n❌ Opción inválida. Intente nuevamente.");
+                    System.out.println("\nOpción inválida. Intente nuevamente.");
             }
         }
     }
@@ -93,7 +93,7 @@ public class Main {
 
         User user = findUserById(userId);
         if (user == null) {
-            System.out.println("❌ Usuario no encontrado.");
+            System.out.println("Usuario no encontrado.");
             return;
         }
 
@@ -110,28 +110,28 @@ public class Main {
 
             Product product = findProductById(prodId);
             if (product == null) {
-                System.out.println("❌ Producto no encontrado.");
+                System.out.println("Producto no encontrado.");
                 continue;
             }
 
             try {
                 order.addProduct(product);
-                System.out.println("✓ Producto agregado: " + product.getName());
+                System.out.println("Producto agregado: " + product.getName());
             } catch (IllegalArgumentException e) {
-                System.out.println("❌ " + e.getMessage());
+                System.out.println("Error: " + e.getMessage());
             }
         }
 
         if (order.getProducts().size() > 0) {
             orders.add(order);
-            System.out.println("\n✓ Orden creada exitosamente:");
+            System.out.println("\nOrden creada exitosamente:");
             System.out.println(order);
             System.out.println("\nDetalle de productos:");
             for (Product p : order.getProducts()) {
                 System.out.println("  • " + p.getName() + " - $" + String.format("%.2f", p.getPrice()));
             }
         } else {
-            System.out.println("\n❌ No se agregaron productos. Orden cancelada.");
+            System.out.println("\nNo se agregaron productos. Orden cancelada.");
         }
     }
 

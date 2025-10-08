@@ -38,22 +38,9 @@ plantitas-urbanas/
 │   │   ├── User.java
 │   │   └── Order.java
 │   ├── service/                  # Business logic layer (TO BE DONE)
-│   │   ├── IService.java
-│   │   ├── ProductService.javas
-│   │   ├── UserService.java
-│   │   └── OrderService.java
 │   ├── exception/                # Custom exception classes (TO BE DONE)
-│   │   ├── NotFoundException.java
-│   │   ├── InvalidDataException.java
-│   │   └── DuplicateException.java
 │   ├── util/                     # Utility classes (TO BE DONE)
-│   │   ├── Validator.java
-│   │   └── InputReader.java
 │   ├── menu/                     # Menu handlers (TO BE DONE)
-│   │   ├── MainMenu.java
-│   │   ├── ProductMenu.java
-│   │   ├── UserMenu.java
-│   │   └── OrderMenu.java
 │   └── Main.java                 # Application entry point
 └── README.md
 ```
