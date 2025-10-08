@@ -2,13 +2,13 @@
 
 A Java console application for managing an urban plant shop. This project demonstrates core Object-Oriented Programming (OOP) concepts including inheritance, polymorphism, encapsulation and exception handling.
 
-## 📋 Table of Contents
+## Table of Contents
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [OOP Concepts Used](#oop-concepts-used)
 - [Technologies](#technologies)
 
-## ✨ Features
+## Features
 
 - **Product Management**
   - Add, update, delete and view plants, tools and fertilizers
@@ -26,7 +26,8 @@ A Java console application for managing an urban plant shop. This project demons
   - Calculate order totals
   - View order history
 
-## 📁 Project Structure
+
+## Project Structure
 
 ```
 plantitas-urbanas/
