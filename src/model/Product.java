@@ -37,7 +37,7 @@ public class Product {
 
     public void setPrice(double price) {
         if (price < 0) {
-            throw new IllegalArgumentException("Price cannot be negative");
+            throw new IllegalArgumentException("El precio debe ser mayor o igual a cero.");
         }
         this.price = price;
     }
@@ -64,7 +64,7 @@ public class Product {
 
     public void setStock(int stock) {
         if (stock < 0) {
-            throw new IllegalArgumentException("Stock cannot be negative");
+            throw new IllegalArgumentException("El stock debe ser mayor o igual a cero.");
         }
         this.stock = stock;
     }
