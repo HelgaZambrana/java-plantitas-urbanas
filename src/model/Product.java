@@ -72,14 +72,8 @@ public class Product {
     // metodos adicionales
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", category=" + category +
-                ", description='" + description + '\'' +
-                ", stock=" + stock +
-                '}';
+        return String.format("[#%d] %s - $%.2f | %s | Stock: %d unidades",
+                id, name, price, category.getDisplayName(), stock);
     }
     public boolean isInStock() {
         return stock > 0;

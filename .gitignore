@@ -7,3 +7,9 @@
 *.iml
 out/
 target/
+
+# Carpetas en desarrollo (no incluir en primera entrega)
+src/service/
+src/menu/
+src/util/
+src/exception/

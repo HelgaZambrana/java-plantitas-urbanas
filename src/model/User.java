@@ -69,13 +69,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-               "id=" + id +
-               ", name='" + name + '\'' +
-               ", email='" + email + '\'' +
-               ", address='" + address + '\'' +
-               ", phone='" + phone + '\'' +
-               '}';
+        return String.format("[Cliente #%d] %s | %s | Tel: %s",
+               id, name, email, phone);
     }
     
 }   

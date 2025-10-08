@@ -1,17 +1,17 @@
 # 🌱 Plantitas Urbanas
 
-A Java console application for managing an urban plant shop. This project demonstrates core Object-Oriented Programming (OOP) concepts including inheritance, polymorphism, encapsulation and exception handling.
+A Java console application for managing an urban plant shop. This project demonstrates core Object-Oriented Programming (OOP) concepts including inheritance, polymorphism, encapsulation and exception handling. (IN PROGRESS)
 
 ## Table of Contents
-- [Features](#features)
+- [MVP Features](#features)
 - [Project Structure](#project-structure)
 - [OOP Concepts Used](#oop-concepts-used)
 - [Technologies](#technologies)
 
-## Features
+## MVP Features
 
 - **Product Management**
-  - Add, update, delete and view plants, tools and fertilizers
+  - Add, update, delete and view products
   - Categorize products
   - Track inventory
 
@@ -33,57 +33,30 @@ A Java console application for managing an urban plant shop. This project demons
 plantitas-urbanas/
 ├── src/
 │   ├── model/                    # Domain models (entities)
-│   │   ├── Product.java          # Abstract base class for all products
-│   │   ├── Category.java         # Enum for product categories
-│   │   ├── User.java             # Customer entity
-│   │   └── Order.java            # Order entity
-│   ├── service/                  # Business logic layer
-│   │   ├── IService.java         # Generic service interface
-│   │   ├── ProductService.java   # Product CRUD operations
-│   │   ├── UserService.java      # User CRUD operations
-│   │   └── OrderService.java     # Order management
-│   ├── exception/                # Custom exception classes
+│   │   ├── Product.java          
+│   │   ├── Category.java
+│   │   ├── User.java
+│   │   └── Order.java
+│   ├── service/                  # Business logic layer (TO BE DONE)
+│   │   ├── IService.java
+│   │   ├── ProductService.javas
+│   │   ├── UserService.java
+│   │   └── OrderService.java
+│   ├── exception/                # Custom exception classes (TO BE DONE)
 │   │   ├── NotFoundException.java
 │   │   ├── InvalidDataException.java
 │   │   └── DuplicateException.java
-│   ├── util/                     # Utility classes
-│   │   ├── Validator.java        # Input validation helpers
-│   │   └── InputReader.java      # Console input handling
-│   ├── menu/                     # Menu handlers (UI layer)
-│   │   ├── MainMenu.java         # Main application menu
-│   │   ├── ProductMenu.java      # Product management menu
-│   │   ├── UserMenu.java         # User management menu
-│   │   └── OrderMenu.java        # Order management menu
+│   ├── util/                     # Utility classes (TO BE DONE)
+│   │   ├── Validator.java
+│   │   └── InputReader.java
+│   ├── menu/                     # Menu handlers (TO BE DONE)
+│   │   ├── MainMenu.java
+│   │   ├── ProductMenu.java
+│   │   ├── UserMenu.java
+│   │   └── OrderMenu.java
 │   └── Main.java                 # Application entry point
 └── README.md
 ```
-
-## OOP Concepts Used
-
-### 1. **Inheritance**
-
-### 2. **Polymorphism**
-- `IService<T>` interface defines a generic contract
-- Different service classes implement the same interface
-- Products can be treated as `Product` type regardless of specific subclass
-
-### 3. **Encapsulation**
-- Private fields with public getters/setters
-- Data validation in setters
-- Hiding implementation details
-
-### 4. **Abstraction**
-- Abstract `Product` class
-- `IService<T>` interface for service layer
-- Separation of concerns (model, service, menu layers)
-
-### 5. **Exception Handling**
-- Custom exceptions for specific error cases
-- Try-catch blocks for user input validation
-- Graceful error messages
-
-### 6. **Enums**
-- `Category.java` defines fixed set of product categories
 
 ## Technologies
 

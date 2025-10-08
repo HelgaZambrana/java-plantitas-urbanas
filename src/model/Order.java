@@ -70,12 +70,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-               "id=" + id +
-               ", user=" + user +
-               ", numProducts=" + products.size() +
-               ", orderDate=" + orderDate +
-               ", totalAmount=$" + totalAmount +
-               '}';
+        return String.format("[Orden #%d] Cliente: %s | Productos: %d | Total: $%.2f",
+               id, user.getName(), products.size(), totalAmount);
     }
 }
