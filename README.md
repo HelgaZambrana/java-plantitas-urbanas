@@ -34,9 +34,6 @@ plantitas-urbanas/
 ├── src/
 │   ├── model/                    # Domain models (entities)
 │   │   ├── Product.java          # Abstract base class for all products
-│   │   ├── Plant.java            # Plant product (extends Product)
-│   │   ├── Tool.java             # Tool product (extends Product)
-│   │   ├── Fertilizer.java       # Fertilizer product (extends Product)
 │   │   ├── Category.java         # Enum for product categories
 │   │   ├── User.java             # Customer entity
 │   │   └── Order.java            # Order entity
@@ -64,18 +61,6 @@ plantitas-urbanas/
 ## OOP Concepts Used
 
 ### 1. **Inheritance**
-- `Product.java` is an abstract base class
-- `Plant.java`, `Tool.java` and `Fertilizer.java` extend `Product`
-
-```java
-public abstract class Product {
-    // Common properties and methods
-}
-
-public class Plant extends Product {
-    // Specific to plants
-}
-```
 
 ### 2. **Polymorphism**
 - `IService<T>` interface defines a generic contract
