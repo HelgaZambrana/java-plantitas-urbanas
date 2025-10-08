@@ -37,10 +37,10 @@ public class Main {
             System.out.println("\n╔════════════════════════════════════════╗");
             System.out.println("║   PLANTITAS URBANAS - MENU PRINCIPAL   ║");
             System.out.println("╚════════════════════════════════════════╝");
-            System.out.println("1. Ver productos disponibles");
-            System.out.println("2. Ver usuarios registrados");
+            System.out.println("1. Listar productos disponibles");
+            System.out.println("2. Listar usuarios registrados");
             System.out.println("3. Crear nueva orden");
-            System.out.println("4. Ver todas las órdenes");
+            System.out.println("4. Listar todas las órdenes");
             System.out.println("5. Salir");
             System.out.print("\nSeleccione una opción: ");
 
