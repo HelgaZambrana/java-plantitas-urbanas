@@ -33,17 +33,33 @@ A Java console application for managing an urban plant shop. This project demons
 plantitas-urbanas/
 ├── src/
 │   ├── model/                    # Domain models (entities)
+│   │   ├── Item.java
 │   │   ├── Product.java          
 │   │   ├── Category.java
 │   │   ├── User.java
 │   │   └── Order.java
-│   ├── service/                  # Business logic layer (TO BE DONE)
+│   ├── service/                  # Business logic layer
+│   │   ├── IService.java
+│   │   ├── ProductService.java
+│   │   ├── UserService.java
+│   │   ├── OrderService.java
 │   ├── exception/                # Custom exception classes (TO BE DONE)
 │   ├── util/                     # Utility classes (TO BE DONE)
 │   ├── menu/                     # Menu handlers (TO BE DONE)
 │   └── Main.java                 # Application entry point
 └── README.md
 ```
+
+## OOP Concepts Used
+- **Classes & Objects**: Implemented core entities (Product, User, Order, Item) and service classes
+- **Inheritance**: `Product extends Item` - specialized product class inherits from abstract base class
+- **Abstract Class**: `Item` serves as abstract parent with shared attributes (id, name, price, description) and abstract method `getTypeDescription()`
+- **Encapsulation**: All attributes are `private` with controlled access through getters/setters
+- **Polymorphism**: Method overriding in `toString()` and `getTypeDescription()` across different classes
+- **Interface**: `IService<T>` generic interface implemented by ProductService, UserService, and OrderService
+- **Collections**: `ArrayList` used throughout service classes for data management
+- **Data Validation**: Input validation in setters (price, stock, email, phone) with exception handling
+
 
 ## Technologies
 
@@ -53,7 +69,7 @@ plantitas-urbanas/
 - **Design Patterns**: Service Layer, Factory (implicit)
 
 
-## 👤 Author
+## Author
 
 **Helga Zambrana**
 - Learning Java through hands-on project development

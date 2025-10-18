@@ -43,7 +43,9 @@ public class Main {
             System.out.println("2. Listar usuarios registrados");
             System.out.println("3. Crear nueva orden");
             System.out.println("4. Listar todas las órdenes");
-            System.out.println("5. Salir");
+            System.out.println("5. Modificar un producto");
+            System.out.println("6. Eliminar un producto");
+            System.out.println("7. Salir");
             System.out.print("\nSeleccione una opción: ");
 
             int option = scanner.nextInt();
@@ -63,6 +65,12 @@ public class Main {
                     showOrders();
                     break;
                 case 5:
+                    modifyProduct();
+                    break;
+                case 6:
+                    deleteProduct();
+                    break;
+                case 7:
                     System.out.println("\n¡Gracias por usar Plantitas Urbanas!");
                     return;
                 default:
@@ -100,7 +108,7 @@ public class Main {
         }
 
         Order order = new Order(user);
-        System.out.println("\n✓ Orden creada para: " + user.getName());
+        System.out.println("\nOrden creada para: " + user.getName());
 
         while (true) {
             showProducts();
@@ -154,5 +162,89 @@ public class Main {
 
     private static Product findProductById(int id) {
         return productService.getById(id);
+    }
+
+    private static void modifyProduct() {
+        System.out.println("\n═══════════════ MODIFICAR PRODUCTO ═══════════════");
+        showProducts();
+        System.out.print("\nIngrese el ID del producto a modificar: ");
+        int prodId = scanner.nextInt();
+        scanner.nextLine();
+
+        Product product = findProductById(prodId);
+        if (product == null) {
+            System.out.println("Producto no encontrado.");
+            return;
+        }
+
+        System.out.println("\nProducto actual: " + product);
+        System.out.println("\nIngrese los nuevos datos (presione Enter para mantener el valor actual):");
+        
+        // Modificar nombre
+        System.out.print("Nuevo nombre [" + product.getName() + "]: ");
+        String newName = scanner.nextLine();
+        if (!newName.trim().isEmpty()) {
+            product.setName(newName);
+        }
+
+        // Modificar precio
+        System.out.print("Nuevo precio [" + product.getPrice() + "]: ");
+        String priceInput = scanner.nextLine();
+        if (!priceInput.trim().isEmpty()) {
+            try {
+                double newPrice = Double.parseDouble(priceInput);
+                product.setPrice(newPrice);
+            } catch (NumberFormatException e) {
+                System.out.println("⚠️ Precio inválido, se mantiene el anterior.");
+            }
+        }
+        
+        // Modificar descripción
+        System.out.print("Nueva descripción [" + product.getDescription() + "]: ");
+        String newDesc = scanner.nextLine();
+        if (!newDesc.trim().isEmpty()) {
+            product.setDescription(newDesc);
+        }
+        
+        // Modificar stock
+        System.out.print("Nuevo stock [" + product.getStock() + "]: ");
+        String stockInput = scanner.nextLine();
+        if (!stockInput.trim().isEmpty()) {
+            try {
+                int newStock = Integer.parseInt(stockInput);
+                product.setStock(newStock);
+            } catch (NumberFormatException e) {
+                System.out.println("⚠️ Stock inválido, se mantiene el anterior.");
+            }
+        }
+        
+        System.out.println("\nProducto modificado exitosamente:");
+        System.out.println(product);
+    }
+
+        private static void deleteProduct() {
+        System.out.println("\n═══════════════ ELIMINAR PRODUCTO ═══════════════");
+        
+        showProducts();
+        System.out.print("\nIngrese el ID del producto a eliminar: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        
+        Product product = productService.getById(id);
+        if (product == null) {
+            System.out.println("Producto no encontrado.");
+            return;
+        }
+        
+        System.out.println("\nProducto a eliminar: " + product);
+        System.out.print("¿Está seguro que desea eliminarlo? (S/N): ");
+        String confirm = scanner.nextLine();
+        
+        if (confirm.equalsIgnoreCase("S") || confirm.equalsIgnoreCase("SI")) {
+            productService.removeItem(id);
+            System.out.println("\nProducto eliminado exitosamente.");
+        } else {
+            System.out.println("\nOperación cancelada.");
+        }
     }
 }
