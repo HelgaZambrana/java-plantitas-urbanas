@@ -1,5 +1,4 @@
 import model.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 import service.ProductService;
 import service.UserService;
@@ -195,7 +194,7 @@ public class Main {
                 double newPrice = Double.parseDouble(priceInput);
                 product.setPrice(newPrice);
             } catch (NumberFormatException e) {
-                System.out.println("⚠️ Precio inválido, se mantiene el anterior.");
+                System.out.println("Precio inválido, se mantiene el anterior.");
             }
         }
         
@@ -214,7 +213,7 @@ public class Main {
                 int newStock = Integer.parseInt(stockInput);
                 product.setStock(newStock);
             } catch (NumberFormatException e) {
-                System.out.println("⚠️ Stock inválido, se mantiene el anterior.");
+                System.out.println("Stock inválido, se mantiene el anterior.");
             }
         }
         
