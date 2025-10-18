@@ -8,7 +8,6 @@
 out/
 target/
 
-src/service/
 src/menu/
 src/util/
 src/exception/

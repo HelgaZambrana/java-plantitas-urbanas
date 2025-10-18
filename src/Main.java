@@ -1,14 +1,16 @@
 import model.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import service.ProductService;
+import service.UserService;
+import service.OrderService;
 
 public class Main {
-    // Listas para almacenar datos
-    private static ArrayList<Product> products = new ArrayList<>();
-    private static ArrayList<User> users = new ArrayList<>();
-    private static ArrayList<Order> orders = new ArrayList<>();
+    // Servicios
+    private static ProductService productService = new ProductService();
+    private static UserService userService = new UserService();
+    private static OrderService orderService = new OrderService();
     private static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
         initializeData();
         showMainMenu();
@@ -16,19 +18,19 @@ public class Main {
 
     private static void initializeData() {
         // Crear productos iniciales
-        products.add(new Product("Suculenta", 15.99, Category.PLANTS_SEEDS,
+        productService.addItem(new Product("Suculenta", 15.99, Category.PLANTS_SEEDS,
             "Planta de bajo mantenimiento", 50));
-        products.add(new Product("Maceta de cerámica", 25.50, Category.DECORATION_MAINTENANCE,
+        productService.addItem(new Product("Maceta de cerámica", 25.50, Category.DECORATION_MAINTENANCE,
             "Maceta decorativa 15cm", 30));
-        products.add(new Product("Fertilizante orgánico", 8.99, Category.SOIL_SUPPLIES,
+        productService.addItem(new Product("Fertilizante orgánico", 8.99, Category.SOIL_SUPPLIES,
             "Fertilizante 500g", 100));
-        products.add(new Product("Regadera 5L", 12.50, Category.IRRIGATION,
+        productService.addItem(new Product("Regadera 5L", 12.50, Category.IRRIGATION,
             "Regadera de plástico", 20));
 
         // Crear usuarios iniciales
-        users.add(new User("María González", "maria@email.com",
+        userService.addItem(new User("María González", "maria@email.com",
             "Av. Libertador 123", "+54 11 1234-5678"));
-        users.add(new User("Carlos Pérez", "carlos@email.com",
+        userService.addItem(new User("Carlos Pérez", "carlos@email.com",
             "Calle Florida 456", "+54 11 8765-4321"));
     }
 
@@ -71,14 +73,14 @@ public class Main {
 
     private static void showProducts() {
         System.out.println("\n═══════════════ PRODUCTOS DISPONIBLES ═══════════════");
-        for (Product p : products) {
+        for (Product p : productService.getAll()) {
             System.out.println(p);
         }
     }
 
     private static void showUsers() {
         System.out.println("\n═══════════════ USUARIOS REGISTRADOS ═══════════════");
-        for (User u : users) {
+        for (User u : userService.getAll()) {
             System.out.println(u);
         }
     }
@@ -123,7 +125,7 @@ public class Main {
         }
 
         if (order.getProducts().size() > 0) {
-            orders.add(order);
+            orderService.addItem(order);
             System.out.println("\nOrden creada exitosamente:");
             System.out.println(order);
             System.out.println("\nDetalle de productos:");
@@ -137,26 +139,20 @@ public class Main {
 
     private static void showOrders() {
         System.out.println("\n═══════════════ TODAS LAS ÓRDENES ═══════════════");
-        if (orders.isEmpty()) {
+        if (orderService.getAll().isEmpty()) {
             System.out.println("No hay órdenes registradas.");
         } else {
-            for (Order o : orders) {
+            for (Order o : orderService.getAll()) {
                 System.out.println(o);
             }
         }
     }
 
     private static User findUserById(int id) {
-        for (User u : users) {
-            if (u.getId() == id) return u;
-        }
-        return null;
+        return userService.getById(id);
     }
 
     private static Product findProductById(int id) {
-        for (Product p : products) {
-            if (p.getId() == id) return p;
-        }
-        return null;
+        return productService.getById(id);
     }
 }
